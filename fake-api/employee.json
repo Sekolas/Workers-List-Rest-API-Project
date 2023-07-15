@@ -1,15 +1,27 @@
 {
   "employees": [
     {
-      "name": "Serkan",
-      "department": "Bilgisayar Mühendisliği",
-      "salary": 25000,
+      "name": "serkan",
+      "department": "Yazılımcı",
+      "salary": "50000",
       "id": 3
     },
     {
-      "name": "yaşar",
-      "department": "karpuzcu",
-      "salary": 50000,
+      "name": "arif kemer",
+      "department": "Usta",
+      "salary": "20000",
+      "id": 2
+    },
+    {
+      "name": "mustafa coşkun",
+      "department": "eğitmen",
+      "salary": "20000",
+      "id": 3
+    },
+    {
+      "name": "uytutyutyu",
+      "deparment": "sfsdf",
+      "salary": "3546",
       "id": 4
     }
   ]

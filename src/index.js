@@ -11,6 +11,7 @@ const updateEmployeeButton=document.getElementById("update");
 
 const request=new Request("http://localhost:3000/employees");
 const ui=new UI();
+let updataestate=null;
 // request.Get()
 // .then(employees=>console.log(employees))
 // .catch(err=>console.log(err));
@@ -35,6 +36,7 @@ function eventlisteners(){
     document.addEventListener("DOMContentLoaded",getAllEmp);
     form.addEventListener("submit",addemployee);
     employeesList.addEventListener("click",UpdateOrDelete);
+    updateEmployeeButton.addEventListener("click",employebuttonclick);
 }
 
 function UpdateOrDelete(e){
@@ -89,5 +91,26 @@ function deleteemployee(target){
 
 function updateEmployee(target){
     ui.UpdatetoggleButton(target);
+    if(updataestate===null){
+        updataestate={
+            updateid:target.children[3].textContent,
+            updateparent:target
+        }
+    }else{
+        updataestate=null;
+    }
 
 }
+
+function employebuttonclick(){
+    if(updataestate) {
+        const data={name:nameInput.value.trim(),department:departmentInput.value.trim(),salary:salaryInput.value.trim()};
+        request.Put(updataestate.updateid,data)
+        .then(response=>{
+            ui.updateEmpOnUI(response,updataestate.updateparent);
+            
+        })
+        .catch(err=>console.log(err))
+    }
+}
+

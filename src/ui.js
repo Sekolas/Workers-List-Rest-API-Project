@@ -8,10 +8,9 @@ export class UI {
   }
 
   addAllEmptoUI(employees) {
-
-    let result="";
-    employees.forEach(employee=>{
-      result+=` 
+    let result = "";
+    employees.forEach((employee) => {
+      result += ` 
     <tr>                                      
       <td>${employee.name}</td>
       <td>${employee.department}</td>
@@ -22,20 +21,18 @@ export class UI {
     </tr>
     `;
 
-    this.employeesList.innerHTML=result;
-    })
+      this.employeesList.innerHTML = result;
+    });
   }
 
-
-  clearInput(){
-    this.nameInput.value="";
-    this.departmentInput.value="";
-    this.salaryInput.value="";
-
+  clearInput() {
+    this.nameInput.value = "";
+    this.departmentInput.value = "";
+    this.salaryInput.value = "";
   }
 
-  addemployees(employee){
-    this.employeesList.innerHTML+=`,
+  addemployees(employee) {
+    this.employeesList.innerHTML += `,
     <tr>                                      
       <td>${employee.name}</td>
       <td>${employee.department}</td>
@@ -45,32 +42,40 @@ export class UI {
       <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
     </tr>
 
-    `
-
+    `;
   }
-  deleteUI(employee){
+  deleteUI(employee) {
     employee.remove();
-
   }
-  UpdatetoggleButton(target){
-    if(this.updatebutton.style.display==="none"){
-      this.updatebutton.style.display="block";
+  UpdatetoggleButton(target) {
+    if (this.updatebutton.style.display === "none") {
+      this.updatebutton.style.display = "block";
       this.addEmployeeİnfoToInputs(target);
-    }else{
-      
-      this.updatebutton.style.display="none";
+    } else {
+      this.updatebutton.style.display = "none";
       this.clearInput();
     }
-
   }
-  addEmployeeİnfoToInputs(target){
-    const children=target.children;
-    this.nameInput.value=children[0].textContent;
-    this.departmentInput.value=children[1].textContent
-    this.salaryInput.value=children[2].textContent
-
+  addEmployeeİnfoToInputs(target) {
+    const children = target.children;
+    this.nameInput.value = children[0].textContent;
+    this.departmentInput.value = children[1].textContent;
+    this.salaryInput.value = children[2].textContent;
   }
-
-
-
+  updateEmpOnUI(employee, parent) {
+    parent.innerHTML = `
+    <tr>
+      <td>${employee.name}</td>
+      <td>${employee.department}</td>
+      <td>${employee.salary}</td>
+      <td>${employee.id}</td>
+      <td><a href="#" id = "update-employee" class= "btn btn-danger">Güncelle</a></td> 
+      <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
+    </tr>
+    
+    
+    `;
+    this.clearInput();
+  }
+  
 }
