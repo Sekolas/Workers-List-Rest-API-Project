@@ -41,8 +41,9 @@ function UpdateOrDelete(e){
     if(e.target.id==="delete-employee"){
         deleteemployee(e.target);
 
-    }elseif(e.target.id=="update-employee"){
+    }else if(e.target.id=="update-employee"){
         updateEmployee(e.target.parentElement.parentElement);
+        
     }
 }
 
@@ -87,7 +88,6 @@ function deleteemployee(target){
 }
 
 function updateEmployee(target){
-    const id=target.parentElement.previousElementSibling.textContent;
-    request.Post(id)
+    ui.UpdatetoggleButton(target);
 
 }

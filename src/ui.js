@@ -52,6 +52,24 @@ export class UI {
     employee.remove();
 
   }
+  UpdatetoggleButton(target){
+    if(this.updatebutton.style.display==="none"){
+      this.updatebutton.style.display="block";
+      this.addEmployeeİnfoToInputs(target);
+    }else{
+      
+      this.updatebutton.style.display="none";
+      this.clearInput();
+    }
+
+  }
+  addEmployeeİnfoToInputs(target){
+    const children=target.children;
+    this.nameInput.value=children[0].textContent;
+    this.departmentInput.value=children[1].textContent
+    this.salaryInput.value=children[2].textContent
+
+  }
 
 
 
